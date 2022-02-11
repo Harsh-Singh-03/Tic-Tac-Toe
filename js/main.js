@@ -12,6 +12,7 @@ let winner = document.querySelector("#winner");
 let winnerName = document.querySelector("#winnerName");
 let quit = document.querySelector("#quit");
 
+
 // How Can We Change Turns
 // False => X's Turn
 // True => O's Turn
@@ -57,8 +58,11 @@ boxes.forEach(items => {
             // change The "changeTurn" Value False Into True
             changeTurn = false;
         }
-        winningFunc();
-        drawFunc();
+       winningFunc() ;
+    //  setTimeout(() => {
+         
+    //      drawFunc();
+    //  }, 2000);
     })
 })
 
@@ -90,19 +94,22 @@ let winningFunc = () => {
             // show "Winner Page" & Hide "Mai Page"
             mainPage.style.display = "none";
             winner.style.display = "block";
+            return ;
         } else if (boxes[b[0]].id == "O" && boxes[b[1]].id == "O" && boxes[b[2]].id == "O") {
             // console.log("O is The Winner");
 
             // Adding Winner text
             winnerName.innerText = `Player O Win The Game!`;
-
+    
             // show "Winner Page" & Hide "Mai Page"
             mainPage.style.display = "none";
             winner.style.display = "block";
-        } else {
-            continue;
+            return ;
         }
+      
+      
     }
+    drawFunc();
 }
 
 // Match Draw Function
